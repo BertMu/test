@@ -1,33 +1,32 @@
-
-<! DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
-<title> Map Track Tutorial - Leaflet </title>
-<meta charset = "utf-8" />
-<meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
-<link rel = "shortcut icon" type = "image/x-icon" href = "docs/images/favicon.ico" />
-<script src = "https://code.jquery.com/jquery-1.12.4.js" ></script>
-<script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
+<title>Map Track Tutorial - Leaflet</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
 html, body {
-height: 50%;
-margin: 0;
+    height: 100%;
+    margin: 0;
 }
 #map {
-width: 1000px;
-height: 800px;
+    width: 1000px;
+    height: 800px;
 }
 </style>
 </head>
 <body>
-<h2> Right click on map to mark your track </h2>
-<p> Drag a marker to move or delete or insert new marker. Icon top right corner of map changes map type </p>
-<div id = 'map' ></div>
-<textarea rows = "4" cols = "50" id = "track" > Track </textarea>
-<div id = "trackdistance" ></div> <button onclick = "download(gpxtrack, 'dowloadtrack.gpx', 'text/csv;encoding:utf-8')" > Download GPX Track </button>
-<script src = "map-track-maker.js" ></script>
+<h2>Right click on map to mark your track</h2>
+<p>Drag a marker to move or delete or insert new marker. Icon top right corner of map changes map type</p>
+<div id='map'></div>
+<textarea rows="4" cols="50" id="track">Track</textarea>
+<div id="trackdistance"></div>
+<button onclick="download(gpxtrack, 'dowloadtrack.gpx', 'text/csv;encoding:utf-8')">Download GPX Track</button>
+<script src="map-track-maker.js"></script>
 </body>
 </html>
-
