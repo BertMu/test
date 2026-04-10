@@ -1,8 +1,7 @@
-var gpxtrack = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<gpx xmlns="https://www.topografix.com/GPX/1/1"  creator="peter-thomson.com" version="1.1" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd">
-<trk><name>28-MAR-18 04:04:44 PM</name>
-<trkseg>
-';
+var gpxtrack = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n' +
+'<gpx xmlns="https://www.topografix.com/GPX/1/1" creator="peter-thomson.com" version="1.1" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd">\n' +
+'<trk><name>28-MAR-18 04:04:44 PM</name>\n' +
+'<trkseg>\n';
 
 var markers = new Array();
 var mid = 0;
@@ -11,9 +10,9 @@ var nextlatlng = '';
 var newpoint = '';
 
 // Define tile layers
-var outdoors = L.tileLayer('https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=af071baf070341ad86b5100adeec252b', {
+var outdoors = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
 var hikebike = L.tileLayer('https://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png', {
@@ -90,7 +89,8 @@ function dragHandler(e) {
     polyline.setLatLngs(latlngs);
     
     if (this.polylineLatlng > -1) {
-        this.bindPopup("<button onclick=\"deletepoint('" + this.polylineLatlng + "','" + markerid + "')\">Delete point " + this.polylineLatlng + " " + markerid + "</button><button onclick=\"insertpoint('" + this.polylineLatlng + "','" + markerid + "')\">Insert point " + this.polylineLatlng + " " + markerid + "</button>").openPopup();
+        this.bindPopup("<button onclick=\"deletepoint('" + this.polylineLatlng + "','" + markerid + "')\">Delete point " + this.polylineLatlng + " " + markerid + "</button><button onclick=\"insertpoint('" + this.polylineLatlng + "','" + markerid + "')\">Insert point</button>");
+        this.openPopup();
     }
 }
 
@@ -149,11 +149,11 @@ function displaylatlong() {
     var div = document.getElementById('track');
     var trackd = document.getElementById('trackdistance');
     var timestamp = new Date().toLocaleString('en-GB');
-    gpxtrack = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<gpx xmlns="https://www.topografix.com/GPX/1/1"  creator="peter-thomson.com" version="1.1" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd">
-<trk><name>' + timestamp + '</name>
-<trkseg>
-';
+    gpxtrack = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n' +
+    '<gpx xmlns="https://www.topografix.com/GPX/1/1" creator="peter-thomson.com" version="1.1" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd">\n' +
+    '<trk><name>' + timestamp + '</name>\n' +
+    '<trkseg>\n';
+    
     div.innerHTML = gpxtrack;
     var latlngs = polyline.getLatLngs();
     trkdistance = 0;
