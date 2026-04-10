@@ -44,6 +44,16 @@ function onMapClick(e) {
     map.setView((e.latlng));
     displaylatlong();
 }
+
+var markerGroup = L.featureGroup();
+var polyline = L.polyline([]);
+var map = L.map('map', {
+    center: [51.505, -0.09],
+    zoom: 13,
+    layers: [outdoors, markerGroup, polyline]
+});
+markerGroup.addTo(map);
+polyline.addTo(map);
 /*
 The next line enables right clicking on the map.
 */
@@ -175,7 +185,7 @@ function redrawmarkers() {
 We can also write out all the values from our array of latlngs, and use Leaflet's function distanceTo(lastpoint) to calculate the distance between each consecutive pair of points.
 We are inserting each of our stored points into the format needed for a GPX file.
 */
-unction displaylatlong() {
+function displaylatlong() {
         var div = document.getElementById('track');
         var trackd = document.getElementById('trackdistance');
         var timestamp = new Date().toLocaleString('en-GB');
